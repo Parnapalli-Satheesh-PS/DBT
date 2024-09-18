@@ -6,3 +6,13 @@ documentation
 data lineage
 
 Cloud
+
+DWH
+structured data
+Data Lake
+structured, semi structured, unstructured data 
+
+SCD
+SCD1 overwrite the data, new row added
+SCD2 overwrite the data, new colum added
+SCD3 new table will be created for historic data
