@@ -16,3 +16,8 @@ SCD
 SCD1 overwrite the data, new row added
 SCD2 overwrite the data, new colum added
 SCD3 new table will be created for historic data
+
+Dataflow process
+raw layer - raw_
+staging layer - src_
+core layer - dim_, fct_
