@@ -21,3 +21,8 @@ Dataflow process
 raw layer - raw_
 staging layer - src_
 core layer - dim_, fct_
+
+seeds
+files that are loaded into DWH from DBT
+sources
+abstartion of roo level data
