@@ -26,3 +26,21 @@ seeds
 files that are loaded into DWH from DBT
 sources
 abstraction of top level data
+
+AIRBNB.DEV.SCD_RAW_LISTINGS
+Database.Schema.Table
+
+
+Snapshots 
+store historical state of rows in a table by recording the data as it changes.
+For SCD2 tables snapshots will be implemented.
+
+Tests
+
+singular
+defined in .sql files in your tests directory. The test consists of a SQL query that should return rows only when there is a failure or violation of the test condition.
+generic 
+1. unique: Ensures all values in a column are unique.
+2. not_null: Ensures a column does not contain any NULL values.
+3. accepted_values: Ensures a column contains only specific, predefined values.
+4. relationships: Ensures that foreign key relationships are valid between tables.
