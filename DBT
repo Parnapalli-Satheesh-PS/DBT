@@ -70,3 +70,27 @@ on_run_start: executed at the start of dbt {run,seed,snapshot}
 on_run_end: executed at the end of dbt {run,seed,snapshot}
 pre-hook: executed before a model/seed/snapshot is built
 post-hook: executed after a model/seed/snapshot is buit
+
+
+proviee source code of the dim_hosts_cleaned model
+
+- name: dim_hosts_cleansed
+  description: cleansed table for the Airbnb hosts
+  columns:
+   - name: host_id
+     description: id of host, This is primary key.
+     tests:
+      - not_null
+      - unique
+
+  - name: host_name
+    description: name of host
+    tests:
+     - not_null
+
+  - name: is_superhost
+    description: defines whether hosts is a superhost.
+    tests:
+     - accepted_values
+       values:['t','f']
+
