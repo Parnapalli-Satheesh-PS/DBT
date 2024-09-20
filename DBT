@@ -44,3 +44,4 @@ generic
 2. not_null: Ensures a column does not contain any NULL values.
 3. accepted_values: Ensures a column contains only specific, predefined values.
 4. relationships: Ensures that foreign key relationships are valid between tables.
+
