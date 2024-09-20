@@ -23,9 +23,9 @@ staging layer - src_
 core layer - dim_, fct_
 
 seeds
-files that are loaded into DWH from DBT
+files that are upload to the DWH from DBT
 sources
-abstraction of top level data
+abstraction layer on the top of your input tables.
 
 AIRBNB.DEV.SCD_RAW_LISTINGS
 Database.Schema.Table
@@ -45,3 +45,28 @@ generic
 3. accepted_values: Ensures a column contains only specific, predefined values.
 4. relationships: Ensures that foreign key relationships are valid between tables.
 
+syntax of CTE
+WITH CTE AS
+(
+SELECT * FROM source.listings
+)
+SELECT
+id AS listing_id,
+room_type,
+created_date
+FROM raw_listings;
+
+Macros
+jinja templates creates in the macros folder
+
+Test
+special macro, can be used for implementing own generic tests.
+
+Hooks
+These are SQLs that executed at predefined times
+configured on project, subfolder, model level
+
+on_run_start: executed at the start of dbt {run,seed,snapshot}
+on_run_end: executed at the end of dbt {run,seed,snapshot}
+pre-hook: executed before a model/seed/snapshot is built
+post-hook: executed after a model/seed/snapshot is buit
