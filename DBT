@@ -94,3 +94,8 @@ proviee source code of the dim_hosts_cleaned model
      - accepted_values
        values:['t','f']
 
+Jinjas
+Using jinja turns your dbt into a programming env6for SQL.
+Macros
+Macros in jinja are pieces of code that can be reused multiple times.
+defined in .sql files in macros directory.
