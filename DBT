@@ -37,6 +37,12 @@ For SCD2 tables snapshots will be implemented.
 
 Tests
 
+models:
+  - name: model
+    tests:
+     - unique:
+        columns: [id]
+
 singular
 defined in .sql files in your tests directory. The test consists of a SQL query that should return rows only when there is a failure or violation of the test condition.
 generic 
@@ -73,7 +79,7 @@ post-hook: executed after a model/seed/snapshot is buit
 
 
 proviee source code of the dim_hosts_cleaned model
-
+models:
 - name: dim_hosts_cleansed
   description: cleansed table for the Airbnb hosts
   columns:
@@ -81,21 +87,35 @@ proviee source code of the dim_hosts_cleaned model
      description: id of host, This is primary key.
      tests:
       - not_null
-      - unique
-
+      - unique:
+         columns: [id]
+models:
   - name: host_name
     description: name of host
     tests:
-     - not_null
-
+     - not_null:
+        columns: [name, age]
+models:
   - name: is_superhost
     description: defines whether hosts is a superhost.
     tests:
-     - accepted_values
-       values:['t','f']
+     - accepted_values:
+        column: status
+        values:['active','inactive']
+models:
+  - name: orders
+    tests:
+     - relationship:
+        to: ref('customers')
+        field: customer_id
 
 Jinjas
 Using jinja turns your dbt into a programming env6for SQL.
 Macros
 Macros in jinja are pieces of code that can be reused multiple times.
+Reusable SQL code snippets that can simplify common operations in DBT models, such as filtering, aggregatting or renaming columns.
 defined in .sql files in macros directory.
+
+optimization techniques for DBT models
+by using materialized views
+optimizing SQL queries by selecting only required columns, creating index, limt funtion
